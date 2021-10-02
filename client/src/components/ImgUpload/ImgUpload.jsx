@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 
+import { useDispatch } from "react-redux";
+import { postImage } from "../../store/actions";
+
 import { Button, IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import UpdateIcon from "@mui/icons-material/Update";
@@ -15,6 +18,8 @@ import { ThemeProvider } from "@emotion/react";
 const ImgUpload = () => {
   const [images, setImages] = useState([]);
   const history = useHistory();
+
+  const dispatch = useDispatch();
 
   const theme = createTheme({
     palette: {
@@ -31,6 +36,7 @@ const ImgUpload = () => {
   const handleClick = () => {
     if (images[0]) {
       history.push("/output");
+      dispatch(postImage(images[0]["data_url"]));
     }
   };
 

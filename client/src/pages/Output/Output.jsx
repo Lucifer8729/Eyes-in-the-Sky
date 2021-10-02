@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router";
+
+import { useSelector, useDispatch } from "react-redux";
+import { getImage } from "../../store/actions";
+
+import { downloadImage } from "./utils";
 
 import {
   Grid,
@@ -23,6 +28,10 @@ import classes from "./styles.module.css";
 
 const Output = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const inputImage = useSelector((state) => state.image.imageToProcess);
+  const outputImage = useSelector((state) => state.image.processedImage);
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -30,6 +39,14 @@ const Output = () => {
       },
     },
   });
+
+  useEffect(() => {
+    if (inputImage !== "") {
+      setTimeout(() => {
+        dispatch(getImage());
+      }, 3000);
+    }
+  }, [inputImage, dispatch]);
 
   const handleClick = (path) => {
     console.log(history);
@@ -57,11 +74,13 @@ const Output = () => {
                   alignItems: "center",
                 }}
               >
-                {
+                {inputImage ? (
+                  <img src={inputImage} alt="" width="100%" height="100%" />
+                ) : (
                   <Box sx={{ width: "40%" }}>
                     <LinearProgress />
                   </Box>
-                }
+                )}
               </Box>
               <PopupState variant="popover" popupId="demo-popup-menu">
                 {(popupState) => (
@@ -113,9 +132,19 @@ const Output = () => {
                   alignItems: "center",
                 }}
               >
-                {<CircularProgress />}
+                {outputImage ? (
+                  <img src={outputImage} alt="" width="100%" height="100%" />
+                ) : (
+                  <CircularProgress />
+                )}
               </Box>
-              <Button variant="contained" startIcon={<CloudDownloadIcon />}>
+              <Button
+                variant="contained"
+                startIcon={<CloudDownloadIcon />}
+                onClick={() => {
+                  downloadImage(outputImage, false);
+                }}
+              >
                 Download
               </Button>
             </div>
