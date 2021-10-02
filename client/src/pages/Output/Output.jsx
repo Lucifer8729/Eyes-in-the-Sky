@@ -17,6 +17,8 @@ import AddIcon from "@mui/icons-material/Add";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 
+import Legends from "../../components/Legends/Legends";
+
 import classes from "./styles.module.css";
 
 const Output = () => {
@@ -119,7 +121,7 @@ const Output = () => {
             </div>
           </Grid>
           <Grid item xs={12} md={2}>
-            Legends
+            <Legends />
           </Grid>
         </Grid>
       </div>
