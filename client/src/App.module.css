@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* background: linear-gradient(to bottom, #d8edf3, #c0dde6); */
+  background: url("./assets/home-info_2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 97vh;
+  margin: 0;
+  padding: 0;
+  /* overflow-y: hidden; */
+}

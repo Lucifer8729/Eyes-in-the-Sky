@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { Switch, Route, useHistory } from "react-router-dom";
+
+import Header from "./components/Header/Header";
+import Home from "./pages/Home/Home";
+import Satellite from "./pages/Satellite/Satellite";
+import Drone from "./pages/Drone/Drone";
+import Prototype from "./pages/Prototype/Prototype";
+import Output from "./pages/Output/Output";
+import About from "./pages/About/About";
+
+import "./App.module.css";
 
 function App() {
+  const history = useHistory();
+  const [homePage, setHomePage] = useState(
+    history.location.pathname === "/" || history.location.pathname === "/about"
+  );
+
+  useEffect(() => {
+    if (homePage) {
+      document.body.style.background = ``;
+    } else {
+      document.body.style.background = `linear-gradient(to bottom, #d8edf3, #c0dde6)`;
+    }
+  }, [homePage]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header setHomePage={setHomePage} homePage={homePage} />
+      <Switch>
+        <Route path="/satellite" exact component={Satellite} />
+        <Route path="/drone" exact component={Drone} />
+        <Route path="/prototype" exact component={Prototype} />
+        <Route path="/about" exact component={About} />
+        <Route path="/output" exact component={Output} />
+        <Route path="/" exact component={Home} />
+      </Switch>
+    </>
   );
 }
 
