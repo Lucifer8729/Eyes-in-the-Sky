@@ -1,0 +1,17 @@
+.header h2 {
+  color: #09333f;
+  margin-bottom: 2rem;
+  font-family: "Roboto";
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+
+.header p {
+  margin-bottom: 1rem;
+  width: 92%;
+}
+
+.contentbox {
+  margin-left: 4.5rem;
+  margin-top: 4rem;
+}
