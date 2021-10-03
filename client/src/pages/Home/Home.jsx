@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <div className={classes.header}>
-        <h1>SkyLight</h1>
+        <h1>Eyes In The Sky</h1>
       </div>
       <div className={classes.body}>
         <p>
