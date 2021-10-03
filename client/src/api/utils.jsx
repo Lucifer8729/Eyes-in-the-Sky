@@ -26,3 +26,16 @@ export const logFormData = (formData) => {
     console.log(key[0] + "," + key[1]);
   }
 };
+
+export function toBase64String(hexstring) {
+  return btoa(
+    String.fromCharCode.apply(
+      null,
+      hexstring
+        .replace(/\r|\n/g, "")
+        .replace(/([\da-fA-F]{2}) ?/g, "0x$1 ")
+        .replace(/ +$/, "")
+        .split(" ")
+    )
+  );
+}

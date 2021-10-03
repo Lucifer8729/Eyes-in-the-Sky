@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 
 import { useDispatch } from "react-redux";
-import { postImage } from "../../store/actions";
+import { postImage, setImage } from "../../store/actions";
 
 import { Button, IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
@@ -15,7 +15,7 @@ import classes from "./styles.module.css";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 
-const ImgUpload = () => {
+const ImgUpload = ({ from }) => {
   const [images, setImages] = useState([]);
   const history = useHistory();
 
@@ -36,7 +36,8 @@ const ImgUpload = () => {
   const handleClick = () => {
     if (images[0]) {
       history.push("/output");
-      dispatch(postImage(images[0]["data_url"]));
+      dispatch(setImage(images[0]["data_url"]));
+      dispatch(postImage(images[0]["data_url"], from));
     }
   };
 
