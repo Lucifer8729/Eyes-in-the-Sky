@@ -14,13 +14,23 @@ export const postImage = async (data) => {
     //   data: { detail: image },
     // });
 
-    let formData = new FormData();
-    formData.append("file", image);
-    const response = await axios.post(`${URL_SERVER}/predict`, formData, {
+    // let formData = new FormData();
+    // formData.append("file", image);
+
+    // const obj = {
+    //   image: image,
+    // };
+
+    const options = {
+      method: "post",
       headers: {
+        Accept: "application/json, text/plain, */*",
         "Content-Type": "multipart/form-data",
       },
-    });
+      body: image,
+    };
+
+    const response = await axios.post(`${URL_SERVER}/predict`, options);
 
     return {
       imageToProcess: response.data.toProcess,

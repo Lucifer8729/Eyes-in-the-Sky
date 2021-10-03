@@ -8,7 +8,27 @@ from PIL import Image
 import numpy as np
 from matplotlib import cm
 from keras_segmentation.models.all_models import model_from_name
-app = FastAPI()
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware import Middleware
+from starlette.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+
+class Data(BaseModel):
+    image: "image/jpeg"
+
+# app = FastAPI()
+
+# origins = [""]
+
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=[""],
+#     allow_headers=["*"],
+# )
+middleware = [ Middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'])]
+app = FastAPI(middleware=middleware)
 
 @app.post('/predict')
 async def predict_image(image:UploadFile=File(...)):
