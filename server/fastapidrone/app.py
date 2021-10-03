@@ -4,33 +4,27 @@ from fastapi import UploadFile,File
 import uvicorn
 from fastapi.responses import FileResponse
 import os
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware import Middleware
 from PIL import Image
 import numpy as np
 from matplotlib import cm
 from keras_segmentation.models.all_models import model_from_name
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware import Middleware
-from starlette.middleware.cors import CORSMiddleware
+from starlette.responses import StreamingResponse
+import cv2
+import io
 from pydantic import BaseModel
+import base64
 
-class Data(BaseModel):
-    image: "image/jpeg"
-
-# app = FastAPI()
-
-# origins = [""]
-
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=True,
-#     allow_methods=[""],
-#     allow_headers=["*"],
-# )
 middleware = [ Middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'])]
+
 app = FastAPI(middleware=middleware)
 
-@app.post('/predict')
+class Analyzer(BaseModel):
+    filename: str
+    encoded_img: str
+
+@app.post('/predict',response_model=Analyzer)
 async def predict_image(image:UploadFile=File(...)):
     print(image.file)
     # print('../'+os.path.isdir(os.getcwd()+"images"),"*************")
@@ -62,10 +56,17 @@ async def predict_image(image:UploadFile=File(...)):
         inp=file_name,
         out_fname="/tmp/out.png"
     )
-
-    im = Image.fromarray(np.uint8(cm.Paired(out)*255))
-    im = im.save("output.png")
-    return FileResponse("output.png")
+    out = np.uint8(cm.Paired(out)*255)
+    # im = Image.fromarray(np.uint8(cm.Paired(out)*255))
+    # im = im.save("output.png")
+    res, im_png = cv2.imencode(".png", out)
+    im_png = base64.b64encode(im_png)
+    # return FileResponse("output.png", media_type="image/png")
+    # return StreamingResponse(io.BytesIO(im_png.tobytes()), media_type="image/png")
+    return{
+        'filename': image.filename,
+        'encoded_img': im_png,
+    }
 
 if __name__=='__main__':
      uvicorn.run(app, debug=True)
