@@ -8,7 +8,6 @@ from PIL import Image
 import numpy as np
 from matplotlib import cm
 from keras_segmentation.models.all_models import model_from_name
-
 app = FastAPI()
 
 @app.post('/predict')
@@ -34,7 +33,7 @@ async def predict_image(image:UploadFile=File(...)):
 
     def resU():
         model_config = {"model_class": "resnet50_unet", "n_classes": 23, "input_height": 768, "input_width": 1152, "output_height": 768, "output_width": 1152}
-        latest_weights = "checkpoints/drone_segmentation_resnet50_unet.h5"
+        latest_weights = "drone_segmentation_resnet50_unet.hdf5"
         return model_from_checkpoint_path(model_config, latest_weights)
 
     model = resU()
