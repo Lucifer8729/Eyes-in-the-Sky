@@ -55,9 +55,9 @@ const Header = ({ setHomePage }) => {
               style={styles.navlinks}
               variant="text"
               size="large"
-              onClick={() => handleClick("satellite")}
+              onClick={() => handleClick("flood-relief")}
             >
-              satellite
+              flood relief
             </Button>
             <Button
               style={styles.navlinks}
@@ -71,9 +71,9 @@ const Header = ({ setHomePage }) => {
               style={styles.navlinks}
               variant="text"
               size="large"
-              onClick={() => handleClick("prototype")}
+              onClick={() => handleClick("satellite")}
             >
-              prototype
+              satellite
             </Button>
           </div>
         </Grid>

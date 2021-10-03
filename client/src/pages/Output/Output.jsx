@@ -94,11 +94,11 @@ const Output = () => {
                     <Menu {...bindMenu(popupState)}>
                       <MenuItem
                         onClick={() => {
-                          handleClick("satellite");
+                          handleClick("flood-relief");
                           popupState.close();
                         }}
                       >
-                        Satellite
+                        Flood Relief
                       </MenuItem>
                       <MenuItem
                         onClick={() => {
