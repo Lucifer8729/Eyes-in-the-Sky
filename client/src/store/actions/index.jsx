@@ -1,4 +1,4 @@
-import * as api from "../../api/index";
+import * as api from "../../api/index2";
 import types from "../types";
 
 export const postImage = (data) => ({
@@ -6,7 +6,7 @@ export const postImage = (data) => ({
   payload: api.postImage(data),
 });
 
-export const getImage = () => ({
+export const getImage = (id) => ({
   type: types.GET_IMAGE,
-  payload: api.getImage(),
+  payload: api.getImage(id),
 });

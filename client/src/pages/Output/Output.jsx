@@ -31,6 +31,7 @@ const Output = () => {
   const dispatch = useDispatch();
   const inputImage = useSelector((state) => state.image.imageToProcess);
   const outputImage = useSelector((state) => state.image.processedImage);
+  const id = useSelector((state) => state.image.curr_id);
 
   const theme = createTheme({
     palette: {
@@ -43,10 +44,10 @@ const Output = () => {
   useEffect(() => {
     if (inputImage !== "") {
       setTimeout(() => {
-        dispatch(getImage());
+        dispatch(getImage(id));
       }, 3000);
     }
-  }, [inputImage, dispatch]);
+  }, [inputImage, dispatch, id]);
 
   const handleClick = (path) => {
     console.log(history);

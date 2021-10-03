@@ -3,6 +3,7 @@ import types from "../types";
 const INITIAL_STATE = {
   imageToProcess: "",
   processedImage: "",
+  curr_id: "",
 };
 
 const imageReducer = (state = INITIAL_STATE, action) => {
