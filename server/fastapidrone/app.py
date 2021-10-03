@@ -58,7 +58,7 @@ async def predict_image(image:UploadFile=File(...)):
         inp=file_name,
         out_fname="/tmp/out.png"
     )
-    out = np.uint8(cm.Paired(out)*255)
+    out = np.uint8(out*255)
     # im = Image.fromarray(np.uint8(cm.Paired(out)*255))
     # im = im.save("output.png")
     res, im_png = cv2.imencode(".png", out)
@@ -80,12 +80,14 @@ async def predict_satellite(image_satellite:UploadFile=File(...)):
         print(os.getcwd())
     except Exception as e:
         print(e) 
-    file_name = os.getcwd()+image_satellite.filename.replace(" ", "-")
+    file_name = os.getcwd()+"/images/"+image_satellite.filename.replace(" ", "-")
     with open(file_name,'wb+') as f:
         f.write(image_satellite.file.read())
         f.close()
-    imagesat = image_satellite.filename
-    imagesat = tf.image.decode_jpeg(imagesat, channels=3)   
+    imageS = np.asarray(Image.open("images/"+image_satellite.filename))
+    imagesat = tf.convert_to_tensor(imageS, dtype=tf.float32)
+    # imagesat = image_satellite.filename
+    # imagesat = tf.image.decode_jpeg(imagesat, channels=3)   
 
     def resize_images(image,max_image_size=1500):
         shape = tf.shape(image)
@@ -118,7 +120,7 @@ async def predict_satellite(image_satellite:UploadFile=File(...)):
 
     output = np.squeeze(output)
 
-    output = np.uint8(cm.Paired(output)*255)
+    output = np.uint8(output*255)
     # im = Image.fromarray(np.uint8(cm.Paired(out)*255))
     # im = im.save("output.png")
     res, imsat_png = cv2.imencode(".png", output)
@@ -126,7 +128,7 @@ async def predict_satellite(image_satellite:UploadFile=File(...)):
     # return FileResponse("output.png", media_type="image/png")
     # return StreamingResponse(io.BytesIO(im_png.tobytes()), media_type="image/png")
     return{
-        'filename': imsat_png.filename,
+        'filename': "output",
         'encoded_img': imsat_png,
     }
 
