@@ -58,7 +58,7 @@ async def predict_image(image:UploadFile=File(...)):
         inp=file_name,
         out_fname="/tmp/out.png"
     )
-    out = np.uint8(out*255)
+    out = np.uint8(cm.Paired(out)*255)
     # im = Image.fromarray(np.uint8(cm.Paired(out)*255))
     # im = im.save("output.png")
     res, im_png = cv2.imencode(".png", out)
