@@ -1,11 +1,12 @@
 import axios from "axios";
-import { dataURLtoFile } from "./utils";
+import { DataURIToBlob, dataURLtoFile, logFormData } from "./utils";
 
 const URL_SERVER = "http://127.0.0.1:8000";
 
 export const postImage = async (data) => {
   const image = dataURLtoFile(data, "image.jpg");
-  console.log(image);
+
+  const imageBlob = DataURIToBlob(data);
 
   try {
     // const response = await axios({
@@ -14,8 +15,8 @@ export const postImage = async (data) => {
     //   data: { detail: image },
     // });
 
-    // let formData = new FormData();
-    // formData.append("file", image);
+    const formData = new FormData();
+    formData.append("image", imageBlob, "image.jpg");
 
     // const obj = {
     //   image: image,
@@ -23,17 +24,27 @@ export const postImage = async (data) => {
 
     const options = {
       method: "post",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "multipart/form-data",
-      },
-      body: image,
+      // headers: {
+      //   Accept: "application/json, text/plain, */*",
+      //   "Content-Type": "multipart/form-data",
+      // },
+      body: formData,
     };
 
-    const response = await axios.post(`${URL_SERVER}/predict`, options);
+    console.log(imageBlob);
+    logFormData(formData);
+
+    // const response = await fetch(`${URL_SERVER}/predict`, options);
+
+    const response = await axios.post(`${URL_SERVER}/predict`, formData, {
+      headers: {
+        "content-Type": "multipart/form-data",
+      },
+    });
+    console.log(response);
 
     return {
-      imageToProcess: response.data.toProcess,
+      imageToProcess: response,
     };
   } catch (error) {
     throw error;
@@ -43,12 +54,12 @@ export const postImage = async (data) => {
 export const getImage = async () => {
   try {
     // const inputImage = await axios.get(`${URL_SERVER}/toProcess`);
-    const response = await axios.get(`${URL_SERVER}/processed`);
+    const response = await axios.get(`${URL_SERVER}/predict`);
 
     // console.log(inputImage);
 
     return {
-      processedImage: response.data.processed,
+      processedImage: response,
     };
   } catch (error) {
     throw error;
