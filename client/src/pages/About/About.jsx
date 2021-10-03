@@ -15,16 +15,10 @@ const About = () => {
           <div className={classes.body}>
             <h1>About</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore
-              eu fugiat nulla pariatur. Excepteur sint occaecat cup
-              idatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum.odo consequat. Duis aute
-              rure dolor inreprehenderit in voluptate.
+              Our Team developed a land cover annotation and segmentation Web-App that efficiently automates the aforementioned tedious job which can be useful in Future land development projects. Our web app enables the end user to upload a satellite or drone image and presents a segmented output along with the sample ingressed which the user could download for future references. We use Deep Learning and Machine Learning Methodologies for  automated Land annotation ,segmentation and deployed the API's in an easy , interactive , smooth operative website. We also endeavored to conceptualize an Use Case prototype which could segment out flooded planes from satellite image which could be invaluably helpful in disaster management.
+            </p>
+            <p>
+              Members of our team has worked together to assemble this website. Aakash Gupta, Rishy Parasar and Ved Prakash Dubey managed the data handling and visualization aspect of the project. Ved Prakash Dubey has worked on the Drone segmentation.Rishy Parasar has worked on the Satellite segmentation and Aakash Gupta has worked on the use case Prototype. Aniket Agarwal, Saurav Kumar and Tanvi Gupta has worked on the front end and UI/UX development of the webpage. They have worked on creating responsive website wireframe and made a user friendly website. All the Team Member together ensured easy, smooth operational and interactive website.
             </p>
           </div>
         </div>
