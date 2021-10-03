@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Satellite from "./pages/Satellite/Satellite";
 import Drone from "./pages/Drone/Drone";
-import Prototype from "./pages/Prototype/Prototype";
+import FloodRelief from "./pages/FloodRelief/FloodRelief";
 import Output from "./pages/Output/Output";
 import About from "./pages/About/About";
 
@@ -31,7 +31,7 @@ function App() {
       <Switch>
         <Route path="/satellite" exact component={Satellite} />
         <Route path="/drone" exact component={Drone} />
-        <Route path="/prototype" exact component={Prototype} />
+        <Route path="/flood-relief" exact component={FloodRelief} />
         <Route path="/about" exact component={About} />
         <Route path="/output" exact component={Output} />
         <Route path="/" exact component={Home} />

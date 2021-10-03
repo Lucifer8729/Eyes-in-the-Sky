@@ -13,7 +13,7 @@ export const postImage = async (data) => {
     // console.log(imageBlob);
     // logFormData(formData);
 
-    const response = await axios.post(`${URL_SERVER}/predict`, formData, {
+    const response = await axios.post(`${URL_SERVER}/predictdrone`, formData, {
       headers: {
         accept: "application/json",
         "content-Type": "multipart/form-data",
