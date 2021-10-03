@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 
 import { useSelector, useDispatch } from "react-redux";
-import { getImage } from "../../store/actions";
+import { cleanState } from "../../store/actions";
 
 import { downloadImage } from "./utils";
 
@@ -42,12 +42,10 @@ const Output = () => {
   });
 
   useEffect(() => {
-    if (inputImage !== "") {
-      setTimeout(() => {
-        dispatch(getImage());
-      }, 3000);
-    }
-  }, [inputImage, dispatch]);
+    return () => {
+      dispatch(cleanState());
+    };
+  }, [dispatch]);
 
   const handleClick = (path) => {
     console.log(history);
