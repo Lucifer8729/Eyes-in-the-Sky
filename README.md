@@ -10,8 +10,6 @@
 *** github_username, repo_name, twitter_handle, email, project_title, project_description
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -22,9 +20,6 @@
 -->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
-
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -46,19 +41,11 @@
   </p>
 </p>
 
-
-
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 Land cover data documents how much of a region is covered by forests, wetlands, impervious surfaces, agriculture, and other land and water types. The different types of land cover can be managed or used quite differently. This can be determined by analyzing satellite and drone imagery and that is what we have done.
 We have created an accessible and robust website made using ReactJS that will perform land cover segmentation and classification from satellites and drones at the click of a button powered by powerful deep learning models served by FastAPI. We have also showed how drastically land cover changes have occurred due to environmental calamities such as thunderstorms and floods.
- 
-
-
 
 ## Tech Stack
 
@@ -66,8 +53,6 @@ We have created an accessible and robust website made using ReactJS that will pe
 * [HTML5, CSS3, Javascript](https://www.w3schools.com/html/html_scripts.asp)
 * [FastAPI](https://fastapi.tiangolo.com/)
 * [Tensorflow](https://www.tensorflow.org/)
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -113,12 +98,11 @@ To get a local copy up and running follow these simple steps.
         ```
 
   3. Install dependencies and create React app
-    
+
       ```sh
       npm install
       npm start
       ```
-
 
 <!-- USAGE EXAMPLES -->
 ## Application in Use
@@ -126,28 +110,23 @@ To get a local copy up and running follow these simple steps.
 ### Salient Features
 
 1. Implementing deep learning models to perform land cover segmentation and classification and serving them at an endpoint using FastAPI.
-2. Annotating and segmenting out images of flood affected areas from satellite images. 
+2. Annotating and segmenting out images of flood affected areas from satellite images.
 3. Accessible, interactive and robust web application built on ReactJS and FastAPI.
 
 ### What it Looks Like
-![1](images\screencapture-localhost-3000-2021-10-04-04_10_17.png)
 
-![2](images\screencapture-localhost-3000-drone-2021-10-04-04_14_34.png)
+<img src="images\screencapture-localhost-3000-2021-10-04-04_10_17.png" alt="Italian Trulli">
 
-![3](images\screencapture-localhost-3000-output-2021-10-04-04_18_09.png)
+<img src="images\screencapture-localhost-3000-drone-2021-10-04-04_14_34.png" alt="Italian Trulli">
 
-![4](images\screencapture-localhost-3000-output-2021-10-04-04_15_48.png)
+<img src="images\screencapture-localhost-3000-output-2021-10-04-04_18_09.png" alt="Italian Trulli">
+
+<img src="images\screencapture-localhost-3000-output-2021-10-04-04_15_48.png" alt="Italian Trulli">
 
 <!-- ROADMAP -->
 ## Flood Relief Use-Case
 
 <img src="images\NSAC - Team Skywalkers Demo PPT.png" alt="Italian Trulli">
-
-
-
-
-
-
 
 <!-- CONTACT -->
 ## Contributors
@@ -170,10 +149,6 @@ To get a local copy up and running follow these simple steps.
 * [Kaggle](https://www.kaggle.com/sudalairajkumar/covid19-in-india)
 * [NASA Space Apps Challenge](https://www.spaceappschallenge.org/)
 * [Aarush](https://www.linkedin.com/company/aaruush-srm-ist/)
-
-
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
