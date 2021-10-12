@@ -26,7 +26,7 @@ export const postImage = async (data, type) => {
       formData.append("image_satellite", imageBlob, "image.jpg");
 
       response = await axios.post(
-        `http://ec2-3-7-65-158.ap-south-1.compute.amazonaws.com:8000/api/flood`,
+        `https://ec2-3-7-65-158.ap-south-1.compute.amazonaws.com:8000/api/flood`,
         formData,
         {
           headers: {
