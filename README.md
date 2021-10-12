@@ -24,7 +24,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Lucifer8729/NSAC-Team-Skywalkers-2021">
+  <a href="https://bit.ly/3iWeXlT">
     <img align="center" src="images\logo_dark.png" alt="Logo" width="100" height="100">
     <h2 align="center">Eyes in the Sky</h2>
     <h3 align="center">Team Skywalkers - NSAC 2021</h3>
