@@ -25,12 +25,16 @@ export const postImage = async (data, type) => {
       const formData = new FormData();
       formData.append("image_satellite", imageBlob, "image.jpg");
 
-      response = await axios.post(`${URL_SERVER}/predictflood`, formData, {
-        headers: {
-          accept: "application/json",
-          "content-Type": "multipart/form-data",
-        },
-      });
+      response = await axios.post(
+        `http://ec2-3-7-65-158.ap-south-1.compute.amazonaws.com:8000/api/flood`,
+        formData,
+        {
+          headers: {
+            accept: "application/json",
+            "content-Type": "multipart/form-data",
+          },
+        }
+      );
     } else {
       return {};
     }
