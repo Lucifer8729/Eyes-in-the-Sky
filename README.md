@@ -24,11 +24,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Lucifer8729/NSAC-Team-Skywalkers-2021">
+  <a href="https://bit.ly/3iWeXlT">
     <img align="center" src="images\logo_dark.png" alt="Logo" width="100" height="100">
     <h2 align="center">Eyes in the Sky</h2>
     <h3 align="center">Team Skywalkers - NSAC 2021</h3>
-    <h3 align="center">----------------------------------------</h3>
+    <h3 align="center">-------------------------------------</h3>
   </a>
   <p align="center">
     Satellite and Drones for Urban Development
@@ -38,6 +38,8 @@
     <a href="https://github.com/Lucifer8729/NSAC-Team-Skywalkers-2021/issues">Report Bug</a>
     ·
     <a href="https://github.com/Lucifer8729/NSAC-Team-Skywalkers-2021/issues">Request Feature</a>
+    .
+    <a href="https://bit.ly/3iWeXlT">Deployed Instance</a>
   </p>
 </p>
 
@@ -53,6 +55,7 @@ We have created an accessible and robust website made using ReactJS that will pe
 * [HTML5, CSS3, Javascript](https://www.w3schools.com/html/html_scripts.asp)
 * [FastAPI](https://fastapi.tiangolo.com/)
 * [Tensorflow](https://www.tensorflow.org/)
+* [AWS EC2 Instances](https://aws.amazon.com/ec2/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
