@@ -39,7 +39,7 @@
     ·
     <a href="https://github.com/Lucifer8729/NSAC-Team-Skywalkers-2021/issues">Request Feature</a>
     .
-    <a href="http://ec2-54-169-232-244.ap-southeast-1.compute.amazonaws.com:3000/">Deployed Instance</a>
+    <a href="https://bit.ly/3iWeXlT">Deployed Instance</a>
   </p>
 </p>
 
