@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Eyes-in-the-Sky/static/css/main.f41e5d85.chunk.css",
+    "main.js": "/Eyes-in-the-Sky/static/js/main.ea931364.chunk.js",
+    "main.js.map": "/Eyes-in-the-Sky/static/js/main.ea931364.chunk.js.map",
+    "runtime-main.js": "/Eyes-in-the-Sky/static/js/runtime-main.bf40fef8.js",
+    "runtime-main.js.map": "/Eyes-in-the-Sky/static/js/runtime-main.bf40fef8.js.map",
+    "static/js/2.ca7432cf.chunk.js": "/Eyes-in-the-Sky/static/js/2.ca7432cf.chunk.js",
+    "static/js/2.ca7432cf.chunk.js.map": "/Eyes-in-the-Sky/static/js/2.ca7432cf.chunk.js.map",
+    "index.html": "/Eyes-in-the-Sky/index.html",
+    "static/css/main.f41e5d85.chunk.css.map": "/Eyes-in-the-Sky/static/css/main.f41e5d85.chunk.css.map",
+    "static/js/2.ca7432cf.chunk.js.LICENSE.txt": "/Eyes-in-the-Sky/static/js/2.ca7432cf.chunk.js.LICENSE.txt",
+    "static/media/about.27563064.jpeg": "/Eyes-in-the-Sky/static/media/about.27563064.jpeg",
+    "static/media/drone.8ba41b51.png": "/Eyes-in-the-Sky/static/media/drone.8ba41b51.png",
+    "static/media/App.module.css": "/Eyes-in-the-Sky/static/media/home-info_2.684ae037.png",
+    "static/media/satellite.ef5593a2.png": "/Eyes-in-the-Sky/static/media/satellite.ef5593a2.png",
+    "static/media/skywalkers_logo.1d100492.png": "/Eyes-in-the-Sky/static/media/skywalkers_logo.1d100492.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bf40fef8.js",
+    "static/js/2.ca7432cf.chunk.js",
+    "static/css/main.f41e5d85.chunk.css",
+    "static/js/main.ea931364.chunk.js"
+  ]
+}
