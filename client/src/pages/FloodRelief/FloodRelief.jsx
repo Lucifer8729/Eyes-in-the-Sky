@@ -13,8 +13,7 @@ const Satellite = () => {
       <Grid item xs={12} md={6}>
         <PageText
           heading="Upload Image"
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          body="The different types of land cover can be managed or used quite differently. This can be determined by analyzing satellite imagery."
           from="flood-relief"
         />
       </Grid>

@@ -9,8 +9,10 @@ const Home = () => {
       </div>
       <div className={classes.body}>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          We have created an accessible and robust website made using ReactJS
+          that will perform land cover segmentation and classification from
+          satellites and drones at the click of a button powered by powerful
+          deep learning models served by FastAPI.
         </p>
       </div>
     </div>
