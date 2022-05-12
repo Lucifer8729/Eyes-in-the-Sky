@@ -29,7 +29,7 @@ class Analyzer(BaseModel):
 @app.post('/predictdrone',response_model=Analyzer)
 async def predict_image(image:UploadFile=File(...)):
     print(image.file)
-    # print('../'+os.path.isdir(os.getcwd()+"images"),"*************")
+   
     try:
         os.mkdir("images")
         print(os.getcwd())
@@ -59,12 +59,10 @@ async def predict_image(image:UploadFile=File(...)):
         out_fname="/tmp/out.png"
     )
     out = np.uint8(cm.Paired(out)*255)
-    # im = Image.fromarray(np.uint8(cm.Paired(out)*255))
-    # im = im.save("output.png")
+   
     res, im_png = cv2.imencode(".png", out)
     im_png = base64.b64encode(im_png)
-    # return FileResponse("output.png", media_type="image/png")
-    # return StreamingResponse(io.BytesIO(im_png.tobytes()), media_type="image/png")
+   
     return{
         'filename': image.filename,
         'encoded_img': im_png,
@@ -74,7 +72,7 @@ async def predict_image(image:UploadFile=File(...)):
 async def predict_satellite(image_satellite:UploadFile=File(...)):
     model_satellite = load_model("satellite.h5")
     print(image_satellite.file)
-    # print('../'+os.path.isdir(os.getcwd()+"images"),"*************")
+
     try:
         os.mkdir("images")
         print(os.getcwd())
@@ -86,8 +84,7 @@ async def predict_satellite(image_satellite:UploadFile=File(...)):
         f.close()
     imageS = np.asarray(Image.open("images/"+image_satellite.filename))
     imagesat = tf.convert_to_tensor(imageS, dtype=tf.float32)
-    # imagesat = image_satellite.filename
-    # imagesat = tf.image.decode_jpeg(imagesat, channels=3)   
+
 
     def resize_images(image,max_image_size=1500):
         shape = tf.shape(image)
@@ -121,12 +118,10 @@ async def predict_satellite(image_satellite:UploadFile=File(...)):
     output = np.squeeze(output)
 
     output = np.uint8(output*255)
-    # im = Image.fromarray(np.uint8(cm.Paired(out)*255))
-    # im = im.save("output.png")
+  
     res, imsat_png = cv2.imencode(".png", output)
     imsat_png = base64.b64encode(imsat_png)
-    # return FileResponse("output.png", media_type="image/png")
-    # return StreamingResponse(io.BytesIO(im_png.tobytes()), media_type="image/png")
+    
     return{
         'filename': "output",
         'encoded_img': imsat_png,
